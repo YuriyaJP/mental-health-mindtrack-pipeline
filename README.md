@@ -17,7 +17,6 @@ cp .env.example .env  # Add HuggingFace or OpenAI API keys
 
 | Source                 | Type    | Notes                                  |
 |------------------------|---------|----------------------------------------|
-| Simulated Journals      | Text    | Synthetic or user-generated daily logs |
-| Custom Labels          | CSV     | Includes emotions, suicidal ideation, etc |
-| Mental Health Reddit Posts | JSON | Anonymized comments (optional)          |
-| External lexicons       | TXT/CSV | NRC, LIWC, PHQ-9 scoring resources     |
+| Simulated Journals      | Text    | Synthetic and Franz Kafka's Diaries logs from 1920s (copyright expired) |
+| Custom Labels          | CSV     | suicide, ADHD, OCD, depression, Aspebergs, PTSD |
+| Mental Health Reddit Posts | JSON | Anonymized comments from 2 datasets  |
