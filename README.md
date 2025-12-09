@@ -6,39 +6,28 @@ This project forecasts mental health states, especially early signs of suicidali
 
 ## System Architecture
 User Audio
-    |
-    v
+   |
+   v
 Audio Preprocessing
-    |
-    v
-+------------------------+      +------------------------+
-|     Speech-to-Text     |      |   Prosody Extraction   |
-|        (ASR)           |      | (pitch, energy, tempo) |
-+------------------------+      +------------------------+
-              \                 /
-               \               /
-                \             /
-                 v           v
-             +---------------------+
-             |   Multimodal Fusion |
-             | (text + prosody)    |
-             +---------------------+
-                        |
-                        v
-                +----------------+
-                |  LLM Reasoning |
-                | (summary +     |
-                |  prompts)      |
-                +----------------+
-                        |
-                        v
-               +-------------------+
-               |   Safety Filter   |
-               | (non-diagnostic)  |
-               +-------------------+
-                        |
-                        v
-      Reflective Summary + Follow-up Prompt
+   |
+   v
+Speech-to-Text (ASR)
+   |
+   v
+Prosody Extraction
+   |
+   v
+Multimodal Fusion (text + prosody)
+   |
+   v
+LLM Reasoning (summary + prompts)
+   |
+   v
+Safety Filter
+   |
+   v
+Final Output (reflection + follow-up prompt)
+
 ---
 
 ##  Setup
