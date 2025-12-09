@@ -11,24 +11,29 @@ User Audio
 Audio Preprocessing
     |
     v
-+------------------------+      +------------------------+
-|     Speech-to-Text     |      |   Prosody Extraction   |
-+------------------------+      +------------------------+
-              |                         |
-              +-----------+-------------+
-                          |
-                          v
-                  Multimodal Fusion
-                          |
-                          v
-                    LLM Reasoning
-                          |
-                          v
-                     Safety Filter
-                          |
-                          v
-         Reflective Summary + Follow-up Prompt
-
++------------------------+        +-------------------------+
+|     Speech-to-Text     |        |     Prosody Extraction  |
++------------------------+        +-------------------------+
+              \                    /
+               \                  /
+                \                /
+                 v              v
+               +--------------------+
+               |   Multimodal Fusion|
+               +--------------------+
+                         |
+                         v
+                 +----------------+
+                 |  LLM Reasoning |
+                 +----------------+
+                         |
+                         v
+                +------------------+
+                |   Safety Filter  |
+                +------------------+
+                         |
+                         v
+     Reflective Summary + Follow-up Prompt
 
 
 ---
