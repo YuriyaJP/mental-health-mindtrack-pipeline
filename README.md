@@ -5,28 +5,31 @@ A voice journaling assistant that transcribes speech, analyzes vocal tone, and g
 This project forecasts mental health states, especially early signs of suicidality, from daily journal-style entries using NLP techniques. It aims to detect emotional distress before it escalates into crises.
 
 ## System Architecture
+```
 User Audio
-   |
-   v
+  |
+  v
 Audio Preprocessing
-   |
-   v
+  |
+  v
 Speech-to-Text (ASR)
-   |
-   v
+  |
+  v
 Prosody Extraction
-   |
-   v
+  |
+  v
 Multimodal Fusion (text + prosody)
-   |
-   v
+  |
+  v
 LLM Reasoning (summary + prompts)
-   |
-   v
+  |
+  v
 Safety Filter
-   |
-   v
+  |
+  v
 Final Output (reflection + follow-up prompt)
+```
+
 
 ---
 
