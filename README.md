@@ -1,8 +1,26 @@
-# Mental Health NLP Pipeline
+# Multimodal Fairness-Aware Mental Health Journaling Agent
+
+A voice journaling assistant that transcribes speech, analyzes vocal tone, and generates safe, helpful reflections and prompts. It uses a small memory window for conversation continuity, runs locally to protect privacy, and includes fairness and robustness checks to ensure consistent performance across accents and audio conditions. The system includes a real-time perception pipeline, a policy-constrained reasoning module, a short-term memory layer, and a fairness and robustness evaluation suite built with Fairlearn.
 
 This project forecasts mental health states, especially early signs of suicidality, from daily journal-style entries using NLP techniques. It aims to detect emotional distress before it escalates into crises.
 
-We focus on fairness-aware forecasting, especially when demographic data is unavailable, by exploring proxy-based methods and tools like Fairlearn.
+## System Architecture
+User Audio
+   ↓
+Audio Preprocessing
+   ↓
+┌──────────────────────────────┬──────────────────────────────┐
+│      Speech-to-Text          │      Prosody Extraction      │
+└──────────────────────────────┴──────────────────────────────┘
+               ↓
+        Multimodal Fusion
+               ↓
+        LLM Reasoning Core
+               ↓
+           Safety Filter
+               ↓
+      Summary + Follow-up Prompt
+
 
 ---
 
@@ -10,7 +28,6 @@ We focus on fairness-aware forecasting, especially when demographic data is unav
 
 ```bash
 pip install -r requirements.txt
-cp .env.example .env  # Add HuggingFace or OpenAI API keys
 ```
 
 ## Data Sources
