@@ -5,51 +5,40 @@ A voice journaling assistant that transcribes speech, analyzes vocal tone, and g
 This project forecasts mental health states, especially early signs of suicidality, from daily journal-style entries using NLP techniques. It aims to detect emotional distress before it escalates into crises.
 
 ## System Architecture
-┌───────────────────────────────────────────────────────────┐
-│                         User Audio                         │
-└───────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌───────────────────────────────────────────────────────────┐
-│                    Audio Preprocessing                     │
-│         (buffering, normalization, segmentation)           │
-└───────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-      ┌──────────────────────────────┬──────────────────────────────┐
-      │                              │                              │
-      ▼                              ▼                              │
-┌───────────────────────┐   ┌──────────────────────────┐            │
-│     Speech-to-Text     │   │    Prosody Extraction    │            │
-│      (ASR model)       │   │ (pitch, energy, tempo)   │            │
-└───────────────────────┘   └──────────────────────────┘            │
-      │                              │                              │
-      └───────────────┬──────────────┴──────────────┬──────────────┘
-                      ▼                             ▼
-                ┌────────────────────────────────────────┐
-                │            Multimodal Fusion            │
-                │  (text features + prosody features)     │
-                └────────────────────────────────────────┘
-                              │
-                              ▼
-                ┌────────────────────────────────────────┐
-                │             LLM Reasoning Core          │
-                │ (summaries, reflections, journaling)    │
-                └────────────────────────────────────────┘
-                              │
-                              ▼
-                ┌────────────────────────────────────────┐
-                │                Safety Filter             │
-                │     (non-diagnostic, constrained)       │
-                └────────────────────────────────────────┘
-                              │
-                              ▼
-┌───────────────────────────────────────────────────────────┐
-│    Reflective Summary + Context-Aware Follow-up Prompt     │
-└───────────────────────────────────────────────────────────┘
-
-
-
+User Audio
+    |
+    v
+Audio Preprocessing
+    |
+    v
++------------------------+      +------------------------+
+|     Speech-to-Text     |      |   Prosody Extraction   |
+|        (ASR)           |      | (pitch, energy, tempo) |
++------------------------+      +------------------------+
+              \                 /
+               \               /
+                \             /
+                 v           v
+             +---------------------+
+             |   Multimodal Fusion |
+             | (text + prosody)    |
+             +---------------------+
+                        |
+                        v
+                +----------------+
+                |  LLM Reasoning |
+                | (summary +     |
+                |  prompts)      |
+                +----------------+
+                        |
+                        v
+               +-------------------+
+               |   Safety Filter   |
+               | (non-diagnostic)  |
+               +-------------------+
+                        |
+                        v
+      Reflective Summary + Follow-up Prompt
 ---
 
 ##  Setup
